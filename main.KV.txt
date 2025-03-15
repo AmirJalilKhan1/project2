@@ -1,0 +1,134 @@
+ScreenManager:
+    SplashScreen:
+    LoginScreen:
+    SignUpScreen:
+    HomeScreen:
+
+<SplashScreen>:
+    name: "splash"
+    MDFloatLayout:
+        MDLabel:
+            text: "SecureTalk"
+            font_style: "H2"
+            halign: "center"
+            pos_hint: {"center_x": 0.5, "center_y": 0.5}    
+
+<LoginScreen>:
+    name: "login"
+    MDLabel:
+        text: "Secure Talk"
+        halign: "center"
+        font_style: "H4"
+        pos_hint: {"center_y": 0.85}
+    MDTextField:
+        id: login_username
+        hint_text: "Username"
+        foreground_color: [0, 0, 0, 1]  # Set the text color to black
+        color_mode: 'custom'  # Use custom color mode
+        line_color_focus: [0, 0, 0, 1]  # Set the line color when focused to black
+        pos_hint: {"center_x": 0.5, "center_y": 0.65}
+        size_hint_x: 0.8
+    MDTextField:
+        id: login_password
+        hint_text: "Password"
+        password: True
+        foreground_color: [0, 0, 0, 1]  # Set the text color to black
+        color_mode: 'custom'  # Use custom color mode
+        line_color_focus: [0, 0, 0, 1]  # Set the line color when focused to black
+        pos_hint: {"center_x": 0.5, "center_y": 0.55}
+        size_hint_x: 0.8
+    MDRaisedButton:
+        text: "Login"
+        text_color: [0, 0, 0, 1]  # Set the button text color to black
+        pos_hint: {"center_x": 0.5, "center_y": 0.4}
+        on_release: app.login()
+    MDTextButton:
+        text: "Sign Up"
+        text_color: [0, 0, 0, 1]  # Set the button text color to black
+        pos_hint: {"center_x": 0.5, "center_y": 0.3}
+        on_release: app.root.current = "signup"
+
+<SignUpScreen>:
+    name: "signup"
+    BoxLayout:
+        orientation: "vertical"
+        spacing: "10dp"
+        size_hint_x: 0.8
+        pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+        MDTextField:
+            id: signup_username
+            hint_text: "Username (Unique)"
+            foreground_color: [0, 0, 0, 1]  # Set the text color to black
+            color_mode: 'custom'  # Use custom color mode
+            line_color_focus: [0, 0, 0, 1]  # Set the line color when focused to black
+
+        MDTextField:
+            id: signup_fullname
+            hint_text: "Full Name"
+            foreground_color: [0, 0, 0, 1]  # Set the text color to black
+            color_mode: 'custom'  # Use custom color mode
+            line_color_focus: [0, 0, 0, 1]  # Set the line color when focused to black
+
+        MDTextField:
+            id: signup_dob
+            hint_text: "Date of Birth"
+            readonly: True
+            foreground_color: [0, 0, 0, 1]  # Set the text color to black
+            color_mode: 'custom'  # Use custom color mode
+            line_color_focus: [0, 0, 0, 1]  # Set the line color when focused to black
+
+        MDRaisedButton:
+            text: "Select Date"
+            text_color: [0, 0, 0, 1]  # Set the button text color to black
+            on_release: app.show_date_picker()
+
+        MDTextField:
+            id: signup_password
+            hint_text: "Password"
+            password: True
+            foreground_color: [0, 0, 0, 1]  # Set the text color to black
+            color_mode: 'custom'  # Use custom color mode
+            line_color_focus: [0, 0, 0, 1]  # Set the line color when focused to black
+
+        MDRaisedButton:
+            text: "Sign Up"
+            text_color: [0, 0, 0, 1]  # Set the button text color to black
+            on_release: app.signup()
+
+        MDRaisedButton:
+            text: "Back"
+            text_color: [0, 0, 0, 1]  # Set the button text color to black
+            on_release: app.root.current = "login"
+
+
+<HomeScreen>:
+    name: "home"
+    MDLabel:
+        text: "Welcome to Secure Talk"
+        halign: "center"
+        font_style: "H5"
+        pos_hint: {"center_y": 0.9}
+    MDRaisedButton:
+        text: "Text Embedding"
+        text_color: [0, 0, 0, 1]  # Set the button text color to black
+        pos_hint: {"center_x": 0.5, "center_y": 0.7}
+        on_release: app.text_embedding()
+    MDRaisedButton:
+        text: "Text Extraction"
+        text_color: [0, 0, 0, 1]  # Set the button text color to black
+        pos_hint: {"center_x": 0.5, "center_y": 0.55}
+        on_release: app.text_extraction()
+    MDRaisedButton:
+        text: "Image Embedding"
+        text_color: [0, 0, 0, 1]  # Set the button text color to black
+        pos_hint: {"center_x": 0.5, "center_y": 0.4}
+        on_release: app.image_embedding()
+    MDRaisedButton:
+        text: "Image Extraction"
+        text_color: [0, 0, 0, 1]  # Set the button text color to black
+        pos_hint: {"center_x": 0.5, "center_y": 0.25}
+        on_release: app.image_extraction()
+    MDRaisedButton:
+        text: "Logout"
+        text_color: [0, 
